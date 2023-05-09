@@ -7,7 +7,7 @@
         <title>Livros</title>
     </head>
     <body>
-        <h1>Não tem Livros</h1>
+        <h1>Livros</h1>
 
         <c:forEach var="item" items="${livros}">
             ${item.titulo} <br />
