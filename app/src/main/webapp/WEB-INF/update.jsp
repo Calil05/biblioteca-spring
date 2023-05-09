@@ -10,8 +10,9 @@
 </head>
 <body>
     <h1>Atualizar Livros</h1>
-    <form action="/insert" method="post">
-        <input type="text" name="titulo" />
+    <form action="/update" method="post">
+        <input type="hidden" name="id" value="${livro.id}" />
+        <input type="text" name="titulo" value="${livro.titulo}" />
         <button type="submit">Salvar</button>
     </form>
 </body>

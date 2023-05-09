@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,9 +38,30 @@ public class LivroController {
         return "redirect:/livro";
     }
 
-    @RequestMapping("/update/{id}")
-    public String update(@PathVariable int id) {
-        return "";
+    @RequestMapping("/update")
+    public String update(Model model, @RequestParam("id") int id) {
+        Optional<Livro> livro = livroRepo.findById(id);
+
+        if(!livro.isPresent()) {
+            return "redirect:/livro";
+        }
+
+        model.addAttribute("livro", livro.get());
+        return "WEB-INF/update.jsp";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(
+        @RequestParam("titulo") String titulo,
+        @RequestParam("id") int id
+    ) {
+        Optional<Livro> livro = livroRepo.findById(id);
+        if(!livro.isPresent()) {
+            return "redirect:/livro";
+        }
+
+        livroRepo.save(livro.get());
+        return "redirect:/livro";
     }
 
 }
