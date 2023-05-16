@@ -29,9 +29,10 @@ public class LivroController {
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public String insert(@RequestParam("titulo") String titulo) {
+    public String insert(@RequestParam("titulo") String titulo, @RequestParam("isbn") String isbn) {
         Livro livro = new Livro();
         livro.setTitulo(titulo);
+        livro.setIsbn(isbn);
 
         livroRepo.save(livro);
         return "redirect:/livro";
@@ -52,7 +53,8 @@ public class LivroController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(
         @RequestParam("titulo") String titulo,
-        @RequestParam("id") int id
+        @RequestParam("id") int id,
+        @RequestParam("isbn") String isbn
     ) {
         Optional<Livro> livro = livroRepo.findById(id);
         if(!livro.isPresent()) {
@@ -60,6 +62,7 @@ public class LivroController {
         }
 
         livro.get().setTitulo(titulo);
+        livro.get().setIsbn(isbn);
 
         livroRepo.save(livro.get());
         return "redirect:/livro";

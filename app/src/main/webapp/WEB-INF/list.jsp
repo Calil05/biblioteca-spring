@@ -5,13 +5,36 @@
     <head>
         <meta charset="UTF-8" />
         <title>Livros</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+    
     </head>
     <body>
-        <h1>Livros</h1>
+        <div class="container">
+            <h1>Livros</h1>
+            <a href="/insert" class="btn btn-primary">Novo Livro</a>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>ISBN</th>
+                    <th>&nbsp</th>
+                </tr>
+                
+                <C:forEach var="item" items="${livros}">
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.titulo}</td>
+                        <td>${item.isbn}</td>
+                        <td>
+                            <a href="/update?id=${item.id}" class="btn btn-warning">Editar</a>
+                            <a href="/delete?id=${item.id}" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                </C:forEach>
 
-        <c:forEach var="item" items="${livros}">
-            ${item.titulo} <br />
-        </c:forEach>
+            </table>
+
+        </div>
 
     </body>
 </html>

@@ -1,19 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
-<html lang="pt-br>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualizar Livros</title>
+    <title>Atualizar Livro</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Atualizar Livros</h1>
-    <form action="/update" method="post">
-        <input type="hidden" name="id" value="${livro.id}" />
-        <input type="text" name="titulo" value="${livro.titulo}" />
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="container">
+        <h1>Atualizar Livro</h1>
+        <a href="/livro" class="btn btn-primary">Voltar</a>
+        <form action="/update" method="post">
+            <input type="hidden" name="id" value="${livro.id}">
+            <div class=form-group>
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control" name="titulo" value="${livro.titulo}">
+            </div>
+            <div class=form-group>
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control" name="titulo" value="${livro.titulo}">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Atualizar</button>
+        </form>
+    </div>
+   
 </body>
 </html>
