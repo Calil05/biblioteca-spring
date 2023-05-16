@@ -20,7 +20,7 @@
             </div>
             <div class=form-group>
                 <label for="titulo">Título</label>
-                <input type="text" class="form-control" name="titulo" value="${livro.isbn">
+                <input type="text" class="form-control" name="titulo" value="${livro.isbn}">
             </div>
             <br />
             <button type="submit" class="btn btn-success">Atualizar</button>
