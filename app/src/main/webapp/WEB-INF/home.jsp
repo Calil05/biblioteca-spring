@@ -3,10 +3,15 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Home</title>
+        <title>Biblioteca</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Olá Spring!!!</h1>
+        <h1>Biblioteca Spring</h1>
+
+        <button class="btn btn-primary" href="/list.jsp">Livros</button>
+        <button class="btn btn-success" href="/listGeneros.jsp">Categorias</button>
+
     </body>
 </html>
 

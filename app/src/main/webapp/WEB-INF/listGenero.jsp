@@ -10,7 +10,7 @@
     <body>
         <div class="container">
             <h1>Generos de Livros</h1>
-            <a href="/insert" class="btn btn-primary">Novo Genero</a>
+            <a href="/add" class="btn btn-primary">Novo Genero</a>
             <table class="table">
                 <tr>
                     <th>Id</th>
@@ -22,8 +22,8 @@
                         <td>${item.id}</td>
                         <td>${item.nome}</td>
                         <td>
-                            <a href="/update?id=${item.id}" class="btn btn-warning">Editar</a>
-                            <a href="/delete?id=${item.id}" class="btn btn-danger">Excluir</a>
+                            <a href="/up?id=${item.id}" class="btn btn-warning">Editar</a>
+                            <a href="/del?id=${item.id}" class="btn btn-danger">Excluir</a>
                         </td>
                     </tr>
                 </c:forEach>
