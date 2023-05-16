@@ -17,7 +17,7 @@
                     <th>Id</th>
                     <th>Título</th>
                     <th>ISBN</th>
-                    <th>&nbsp</th>
+                    <th>&nbsp;</th>
                 </tr>
                 
                 <C:forEach var="item" items="${livros}">
