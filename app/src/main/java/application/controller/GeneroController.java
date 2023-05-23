@@ -12,59 +12,57 @@ import org.springframework.web.bind.annotation.RequestParam;
 import application.model.Genero;
 import application.model.GeneroRepository;
 
-//Corrigido
 
 @Controller
 @RequestMapping("/genero")
 public class GeneroController {
+
     @Autowired
     private GeneroRepository generoRepo;
 
     @RequestMapping("/list")
     public String list(Model model) {
         model.addAttribute("generos", generoRepo.findAll());
-        return "/genero/list";
+        return "listGenero";
     }
 
     @RequestMapping("/insert")
     public String insert() {
-        return "/genero/insert";
+        return "insertGenero";
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public String insert(@RequestParam("nome") String nome) {
-        Genero genero = new Genero();
+        Genero genero  = new Genero();
         genero.setNome(nome);
 
         generoRepo.save(genero);
-
         return "redirect:/genero/list";
     }
-
-    @RequestMapping("update")
-    public String update(Model model, @RequestParam("id") int id) {
+    
+    @RequestMapping("/update")
+    public String update(Model model,@RequestParam int id){
         Optional<Genero> genero = generoRepo.findById(id);
 
-        if(genero.isPresent()) {
+        if(genero.isPresent()){
+
             model.addAttribute("genero", genero.get());
-            return "/genero/update";    
+            return "updateGenero";
         }
-
         return "redirect:/genero/list";
+
+        
     }
 
-    @RequestMapping(value = "update", method = RequestMethod.POST)
-    public String update(
-        @RequestParam("id") int id,
-        @RequestParam("nome") String nome) {
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(Model model,@RequestParam("nome") String nome, @RequestParam("id") int id){
+        
         Optional<Genero> genero = generoRepo.findById(id);
-
-        if(genero.isPresent()) {
-            genero.get().setNome(nome);
-            
-            generoRepo.save(genero.get());   
+        if(!genero.isPresent()){
+            return "redirect:/genero/list";
         }
-
+        genero.get().setNome(nome);
+        generoRepo.save(genero.get());
         return "redirect:/genero/list";
     }
 
@@ -73,11 +71,13 @@ public class GeneroController {
         Optional<Genero> genero = generoRepo.findById(id);
 
         if(genero.isPresent()) {
-            model.addAttribute("genero", genero.get());
-            return "/genero/delete";    
-        }
 
+            model.addAttribute("genero", genero.get());
+            return "deleteGenero";
+        }
         return "redirect:/genero/list";
+
+       
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
@@ -85,4 +85,5 @@ public class GeneroController {
         generoRepo.deleteById(id);
         return "redirect:/genero/list";
     }
+
 }

@@ -36,7 +36,7 @@ public class LivroController {
         livro.setIsbn(isbn);
 
         livroRepo.save(livro);
-        return "redirect:/livro";
+        return "redirect:/livro/list";
     }
 
     @RequestMapping("/update")
@@ -44,7 +44,7 @@ public class LivroController {
         Optional<Livro> livro = livroRepo.findById(id);
 
         if(!livro.isPresent()) {
-            return "redirect:/livro";
+            return "redirect:/livro/list";
         }
 
         model.addAttribute("livro", livro.get());
@@ -59,14 +59,14 @@ public class LivroController {
     ) {
         Optional<Livro> livro = livroRepo.findById(id);
         if(!livro.isPresent()) {
-            return "redirect:/livro";
+            return "redirect:/livro/list";
         }
 
         livro.get().setTitulo(titulo);
         livro.get().setIsbn(isbn);
 
         livroRepo.save(livro.get());
-        return "redirect:/livro";
+        return "redirect:/livro/list";
     }
 
     @RequestMapping("/delete")
@@ -74,7 +74,7 @@ public class LivroController {
         Optional<Livro> livro = livroRepo.findById(id);
 
         if(!livro.isPresent()) {
-            return "redirect:/livro";
+            return "redirect:/livro/list";
         }
 
         model.addAttribute("livro", livro.get());
@@ -84,6 +84,6 @@ public class LivroController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@RequestParam("id") int id) {
         livroRepo.deleteById(id);
-        return "redirect:/livro";
+        return "redirect:/livro/list";
     }
 }

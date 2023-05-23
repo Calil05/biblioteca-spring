@@ -12,15 +12,21 @@ import jakarta.persistence.Table;
 @Table(name="livros")
 public class Livro {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String titulo;
     private String isbn;
 
     @ManyToOne
-    @JoinColumn(name="id_genero")
-    private Genero genero; 
+    @JoinColumn(name = "id_genero")
+    private Genero genero;
 
+    public Genero getGenero() {
+        return genero;
+    }
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
     public String getIsbn() {
         return isbn;
     }
