@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Atualizar Genero</h1>
-        <a href="/genero" class="btn btn-primary">Voltar</a>
+        <a href="/genero/listgenerosclass="btn btn-primary">Voltar</a>
         <form action="/up" method="post">
             <input type="hidden" name="id" value="${genero.id}">
             <div class=form-group>

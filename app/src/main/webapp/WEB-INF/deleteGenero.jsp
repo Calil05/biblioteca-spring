@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Excluir Genero</h1>
-        <a href="/genero" class="btn btn-primary">Voltar</a>
+        <a href="/genero/listgeneros" class="btn btn-primary">Voltar</a>
         <p>Deseja remover o Genero <strong>"${genero.nome}"</strong></p>
         <form action="/del" method="post">
             <input type="hidden" name="id" value="${genero.id}">

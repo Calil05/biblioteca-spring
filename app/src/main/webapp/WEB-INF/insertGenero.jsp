@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Novo Genero</h1>
-        <a href="/generos" class="btn btn-primary">Voltar</a>
+        <a href="/generos/listgenerosclass="btn btn-primary">Voltar</a>
         <form action="/add" method="post">
             <div class=form-group>
                 <label for="nome">Nome</label>
