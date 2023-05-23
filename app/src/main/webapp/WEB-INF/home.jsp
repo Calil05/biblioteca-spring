@@ -10,7 +10,7 @@
         <h1>Biblioteca Spring</h1>
 
         <a class="btn btn-primary" href="/livro/list">Livros</a>
-        <a class="btn btn-success" href="/genero/listGeneros">Categorias</a>
+        <a class="btn btn-success" href="/genero/list">Categorias</a>
 
     </body>
 </html>

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import application.model.Genero;
 import application.model.GeneroRepository;
 
+//Corrigido
+
 @Controller
 @RequestMapping("/genero")
 public class GeneroController {

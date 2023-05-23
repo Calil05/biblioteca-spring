@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Novo Livro</h1>
         <a href="/livro/list" class="btn btn-primary">Voltar</a>
-        <form action="/insert" method="post">
+        <form action="/livro/insert" method="post">
             <div class=form-group>
                 <label for="titulo">Título</label>
                 <input type="text" class="form-control" name="titulo">
