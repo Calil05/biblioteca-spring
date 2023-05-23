@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Novo Livro</h1>
-        <a href="/livro" class="btn btn-primary">Voltar</a>
+        <a href="/livro/list" class="btn btn-primary">Voltar</a>
         <form action="/insert" method="post">
             <div class=form-group>
                 <label for="titulo">Título</label>

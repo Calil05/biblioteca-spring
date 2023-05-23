@@ -9,8 +9,8 @@
     <body>
         <h1>Biblioteca Spring</h1>
 
-        <button class="btn btn-primary" href="/list.jsp">Livros</button>
-        <button class="btn btn-success" href="/listGeneros.jsp">Categorias</button>
+        <a class="btn btn-primary" href="/livro/list">Livros</a>
+        <a class="btn btn-success" href="/livro/listGeneros">Categorias</a>
 
     </body>
 </html>

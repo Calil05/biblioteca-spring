@@ -12,20 +12,21 @@ import application.model.Livro;
 import application.model.LivroRepository;
 
 @Controller
+@RequestMapping("/livro")
 public class LivroController {
 
     @Autowired
     private LivroRepository livroRepo;
 
-    @RequestMapping("/livro")
+    @RequestMapping("/list")
     public String list(Model model) {
         model.addAttribute("livros", livroRepo.findAll());
-        return "WEB-INF/list.jsp";
+        return "list";
     }
 
     @RequestMapping("/insert")
     public String insert() {
-        return "WEB-INF/insert.jsp";
+        return "insert";
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
@@ -47,7 +48,7 @@ public class LivroController {
         }
 
         model.addAttribute("livro", livro.get());
-        return "WEB-INF/update.jsp";
+        return "update";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -77,7 +78,7 @@ public class LivroController {
         }
 
         model.addAttribute("livro", livro.get());
-        return "WEB-INF/delete.jsp";
+        return "delete";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

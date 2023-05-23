@@ -22,12 +22,12 @@ public class GeneroController {
     @RequestMapping("/genero")
     public String list(Model model) {
         model.addAttribute("generos", generoRepo.findAll());
-        return "WEB-INF/listGenero.jsp";
+        return "listGenero";
     }
 
     @RequestMapping("/add")
     public String insert() {
-        return "WEB-INF/insertGenero.jsp";
+        return "insertGenero";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -48,7 +48,7 @@ public class GeneroController {
         }
 
         model.addAttribute("genero", genero.get());
-        return "WEB-INF/updateGenero.jsp";
+        return "updateGenero";
     }
 
     @RequestMapping(value = "/up", method = RequestMethod.POST)
@@ -72,7 +72,7 @@ public class GeneroController {
         }
 
         model.addAttribute("genero", genero.get());
-        return "WEB-INF/deleteGenero.jsp";
+        return "deleteGenero";
     }
 
     @RequestMapping(value = "/del", method = RequestMethod.POST)
